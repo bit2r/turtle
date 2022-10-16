@@ -38,3 +38,17 @@ turtle_do({
     Sys.sleep(0.01)
   }
 })
+
+
+# meta programming --------------------------------------------------------
+library(rlang)
+
+turtle_go <- rlang::expr(turtle_move(10))
+eval(turtle_go)
+
+
+turtle_order <- "turtle_move(5)"
+
+turtle_go <- rlang::parse_expr(turtle_order)
+eval(turtle_go)
+
