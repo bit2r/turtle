@@ -1,0 +1,28 @@
+project:
+  type: website
+  title: "turtle"
+  output-dir: docs
+
+website:
+  title: "거북이"
+  page-footer:
+    left: "[한국R사용자회](http://r2bit.com/)에서 [Quarto](https://quarto.org/) 로 제작"
+  navbar:
+    background: "#447099"  
+    left:
+      - text: "집으로"
+        href: index.qmd
+      - text: "거북이"
+        menu: 
+          - href: turtle.qmd
+          - text: "거북이"
+          
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
