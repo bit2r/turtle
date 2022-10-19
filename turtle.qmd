@@ -1,9 +1,234 @@
 ---
 title: "거북이"
+lang: kr
+filters:
+   - lightbox
+lightbox: auto
+knitr:
+  opts_chunk: 
+    echo: true
+    collapse: true
+    comment: "#>"
+editor_options: 
+  chunk_output_type: console
 ---
 
-About this site
+# 로고 프로그래밍 언어
+
+로고(Logo) 프로그래밍 언어는 단어 혹은 생각을 의미하는 그리스 로고스(logos)에서 파생된 단어로 1967년 Feurzeig 가 붙였다. 
+
+[출처: [Logo (programming language)](https://en.wikipedia.org/wiki/Logo_(programming_language))]{.aside}
+
+거북이 그래픽(Turtle Graphics)은 개발자가 특히 처음 프로그래밍을 배우는 학생이 본인이 거북이라고 가정하고 2차원 평면을 단 명령어 2개를 가지고 프로그래밍 주요 개념을 체화할 수 있는 교육용 프로그래밍 언어다.
+
+![위키 L-system(Koch curve) 거북이 그래픽](assets/KochTurtleAnim.gif)
+
+# R 패키지
+
+[`TurtleGraphics`](https://cran.r-project.org/web/packages/TurtleGraphics/) 패키지는 로고 프로그래밍 언어를 R 언어에서 사용할 수 있도록 특별히 최근에 제작되었다.
+
 
 ```{r}
-1 + 1
+library(TurtleGraphics)
+
+turtle_init()
 ```
+
+TurtleGraphics 패키지에 소개된 소품문(Vignette)이 매우 잘되어 있고 이를 바탕으로 [Beginning Computer Science with R](https://homerhanumat.github.io/r-notes/turtle.html) 전자책에 관련 사항이 잘 정리되어 있다. 
+
+## 위치와 방향
+
+거북이 위치와 상태를 파악하는 것이 향후 거북이를 움직여 의미있는 결과물을 만들어내는데 큰 도움이 된다. 
+
+`turtle_getpos()` 함수를 사용하면 현재 위치를 확인할 수 있다.
+
+```{r}
+turtle_getpos()
+```
+
+`turtle_getangle()` 함수를 사용하면 거북이가 향하고 있는 방향을 확인할 수 있다.
+
+```{r}
+turtle_getangle()
+```
+
+## 전후 이동
+
+`turtle_move()` 함수가 기본이고 이를 다양하게 변형한 함수가 생성되어 지원되고 있다. 예를 들어,
+
+- `turtle_move()`: 거북이 이동
+- `turtle_forward()`: 거북이 앞으로 이동
+- `turtle_backward()`: 거북이 뒤로 이동
+
+`turtle_move()` 함수에 `distance = -5` 이와 같이 하게 되면 뒤로 후진한다.
+
+```{r}
+#| label: turtle-move
+
+turtle_init()
+turtle_forward(dist = -30)
+```
+
+
+## 방향 전환
+
+`turtle_move()` 와 마찬가지로 `turtle_right()` 혹은 `turtle_left()` 함수를 사용하면 좌회전 우회전할 수 있다. `angle = ` 인자를 음수로 각도를 넣게 되면 반대방향으로 방향을 바꾼다.
+
+
+```{r}
+#| label: turtle-angle
+
+turtle_init()
+turtle_right(angle = 90)
+turtle_move(dist = 30, direction = "forward")
+```
+
+
+## 환경설정
+
+`tutle_col()` 함수를 사용하면 거북이가 이동할 때 남긴 흔적 선색을 예를 들어 "blue" 로 설정하게 되면 파란색으로 설정할 수 있다.
+
+```{r}
+turtle_init()
+turtle_col(col = "blue")
+turtle_move(dist = 10)
+```
+
+`turtle_lwd()` 함수에 `lwd = ` 인자를 넣게 되면 선두께를 달리할 수 있다. `lwd` 친숙하신 분은 Base 그래픽에 근거를 둔 것을 알 수 있다.
+
+```{r}
+#| label: turtle-lwd
+turtle_init()
+turtle_lwd(lwd = 5)
+turtle_right(45)
+turtle_move(dist = 10)
+```
+
+`turtle_lty()` 함수에 `lty = ` 선유형을 설정하게 되면 점선, 대쉬선 등을 지정할 수 있다.
+
+```{r}
+turtle_init()
+turtle_lty(lty = 2)
+turtle_right(45)
+turtle_move(dist = 30)
+```
+
+
+# 프로그래밍
+
+## 헬로 월드
+
+`turtle_init()` 으로 초기화 시키고 나서 북쪽을 향하는 기호 비슷한 문양을 다음과 같이 거북이를 이동시키면 그릴 수 있다.
+
+```{r}
+turtle_init()            # 초기화
+turtle_col(col = "blue") # 색상설정
+
+turtle_do({
+  # 거북이 이동
+  turtle_forward(dist = 30)
+  turtle_backward(dist = 10)
+  
+  turtle_right(90)
+  turtle_forward(10)
+  turtle_left(angle = 135)
+  turtle_forward(14.14)
+  turtle_left(angle = 90)
+  turtle_forward(14.14)
+  turtle_left(angle = 135)
+  turtle_forward(10)
+})
+```
+
+`turtle_up()` 함수는 거북이가 **공중부양(?)**을 하기 때문에 그리기 추적 없이 공중부양해서 명령을 수행하고 `turtle_down()` 함수는 다시 거북이가 하늘에서 내려와서 다시 그리기 명령을 수행한다.
+
+```{r}
+turtle_init()
+
+turtle_do({
+  turtle_right(angle = 90)
+  turtle_forward(dist = 10)
+  turtle_right(angle = 90)
+  turtle_forward(dist = 17)
+  
+  turtle_up()    # 그리기 추적 없음
+  turtle_right(angle = 90)
+  turtle_forward(dist = 10)
+  turtle_right(angle = 90)
+  turtle_forward(dist = 17)
+  turtle_down()  # 다시 그리기 추적 시작
+  turtle_left(angle = 180)
+  turtle_forward(dist = 34)
+})
+```
+
+## 반복
+
+`turtle_move()` 함수를 사용해서 매번 코딩을 하게 되면 프로그램이 무척이나 길어지게 된다. 예를 들어 사각형을 거북이가 그리게 되는 사례를 살펴보자.
+
+
+::: {.panel-tabset}
+
+### 순차 실행
+
+`turtle_init()` 명령어로 거북이 운동장을 깔끔히 비우고 사각형을 그리는 알고리즘으로 이동하고 오른쪽 90도 방향 바꿔 이를 4회 반복한다.
+
+```{r}
+turtle_init()
+
+turtle_do({
+  turtle_move(30)
+  turtle_right(90)
+  turtle_move(30)
+  turtle_right(90)
+  turtle_move(30)
+  turtle_right(90)
+  turtle_move(30)
+})
+```
+
+### 반복문 
+
+`turtle_init()` 명령어로 거북이 운동장을 깔끔히 비우고 이동하고 우측으로 방향을 90도 바꾸는 명령어를 `for()` 함수로 4번 반복한다.
+
+```{r}
+turtle_init(mode = "clip")
+turtle_col(col = "red")
+
+turtle_do({
+  for(i in 1:4) {
+    turtle_move(30)
+    turtle_right(90)
+  }
+})
+```
+
+### 함수
+
+`turtle_init()` 명령어로 거북이 운동장을 깔끔히 비우고 선두께도 조금 두껍게 하고 `colors()` 함수에 색상을 하나 뽑아 거북이가 이동할 때마다 색상을 달리한 사각형을 그리는 함수를 제작하여 실행한다.
+
+```{r}
+turtle_init(mode = "clip")
+turtle_lwd(3)
+
+draw_rectangle <- function() {
+  
+  turtle_do({  
+    for(i in 1:4) {
+      random_color <- sample(1:657, 1)
+      turtle_col(col = colors()[random_color])
+      turtle_move(30)
+      turtle_right(90)
+    }
+  })
+  
+}
+
+draw_rectangle()
+
+```
+
+
+
+:::
+

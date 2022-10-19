@@ -4,13 +4,104 @@
     "href": "index.html",
     "title": "turtle",
     "section": "",
-    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\n코드 보기\n1 + 1\n\n\n[1] 2"
   },
   {
     "objectID": "turtle.html",
     "href": "turtle.html",
     "title": "거북이",
     "section": "",
-    "text": "1 + 1\n\n[1] 2"
+    "text": "로고(Logo) 프로그래밍 언어는 단어 혹은 생각을 의미하는 그리스 로고스(logos)에서 파생된 단어로 1967년 Feurzeig 가 붙였다.\n출처: Logo (programming language)\n거북이 그래픽(Turtle Graphics)은 개발자가 특히 처음 프로그래밍을 배우는 학생이 본인이 거북이라고 가정하고 2차원 평면을 단 명령어 2개를 가지고 프로그래밍 주요 개념을 체화할 수 있는 교육용 프로그래밍 언어다.\n\n\n\n위키 L-system(Koch curve) 거북이 그래픽"
+  },
+  {
+    "objectID": "turtle.html#위치와-방향",
+    "href": "turtle.html#위치와-방향",
+    "title": "거북이",
+    "section": "2.1 위치와 방향",
+    "text": "2.1 위치와 방향\n거북이 위치와 상태를 파악하는 것이 향후 거북이를 움직여 의미있는 결과물을 만들어내는데 큰 도움이 된다.\nturtle_getpos() 함수를 사용하면 현재 위치를 확인할 수 있다.\n\n\n코드 보기\nturtle_getpos()\n#>  x  y \n#> 50 50\n\n\nturtle_getangle() 함수를 사용하면 거북이가 향하고 있는 방향을 확인할 수 있다.\n\n\n코드 보기\nturtle_getangle()\n#> angle \n#>     0"
+  },
+  {
+    "objectID": "turtle.html#전후-이동",
+    "href": "turtle.html#전후-이동",
+    "title": "거북이",
+    "section": "2.2 전후 이동",
+    "text": "2.2 전후 이동\nturtle_move() 함수가 기본이고 이를 다양하게 변형한 함수가 생성되어 지원되고 있다. 예를 들어,\n\nturtle_move(): 거북이 이동\nturtle_forward(): 거북이 앞으로 이동\nturtle_backward(): 거북이 뒤로 이동\n\nturtle_move() 함수에 distance = -5 이와 같이 하게 되면 뒤로 후진한다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_forward(dist = -30)\n#> Warning in turtle_move(distance, \"forward\"): Negative value of `distance` moves\n#> the Turtle in the opposite direction."
+  },
+  {
+    "objectID": "turtle.html#방향-전환",
+    "href": "turtle.html#방향-전환",
+    "title": "거북이",
+    "section": "2.3 방향 전환",
+    "text": "2.3 방향 전환\nturtle_move() 와 마찬가지로 turtle_right() 혹은 turtle_left() 함수를 사용하면 좌회전 우회전할 수 있다. angle = 인자를 음수로 각도를 넣게 되면 반대방향으로 방향을 바꾼다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_right(angle = 90)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_move(dist = 30, direction = \"forward\")"
+  },
+  {
+    "objectID": "turtle.html#환경설정",
+    "href": "turtle.html#환경설정",
+    "title": "거북이",
+    "section": "2.4 환경설정",
+    "text": "2.4 환경설정\ntutle_col() 함수를 사용하면 거북이가 이동할 때 남긴 흔적 선색을 예를 들어 “blue” 로 설정하게 되면 파란색으로 설정할 수 있다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_col(col = \"blue\")\nturtle_move(dist = 10)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nturtle_lwd() 함수에 lwd = 인자를 넣게 되면 선두께를 달리할 수 있다. lwd 친숙하신 분은 Base 그래픽에 근거를 둔 것을 알 수 있다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_lwd(lwd = 5)\nturtle_right(45)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_move(dist = 10)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nturtle_lty() 함수에 lty = 선유형을 설정하게 되면 점선, 대쉬선 등을 지정할 수 있다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_lty(lty = 2)\nturtle_right(45)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_move(dist = 30)"
+  },
+  {
+    "objectID": "turtle.html#헬로-월드",
+    "href": "turtle.html#헬로-월드",
+    "title": "거북이",
+    "section": "3.1 헬로 월드",
+    "text": "3.1 헬로 월드\nturtle_init() 으로 초기화 시키고 나서 북쪽을 향하는 기호 비슷한 문양을 다음과 같이 거북이를 이동시키면 그릴 수 있다.\n\n\n코드 보기\nturtle_init()            # 초기화\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_col(col = \"blue\") # 색상설정\n\nturtle_do({\n  # 거북이 이동\n  turtle_forward(dist = 30)\n  turtle_backward(dist = 10)\n  \n  turtle_right(90)\n  turtle_forward(10)\n  turtle_left(angle = 135)\n  turtle_forward(14.14)\n  turtle_left(angle = 90)\n  turtle_forward(14.14)\n  turtle_left(angle = 135)\n  turtle_forward(10)\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nturtle_up() 함수는 거북이가 공중부양(?)을 하기 때문에 그리기 추적 없이 공중부양해서 명령을 수행하고 turtle_down() 함수는 다시 거북이가 하늘에서 내려와서 다시 그리기 명령을 수행한다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\n\nturtle_do({\n  turtle_right(angle = 90)\n  turtle_forward(dist = 10)\n  turtle_right(angle = 90)\n  turtle_forward(dist = 17)\n  \n  turtle_up()    # 그리기 추적 없음\n  turtle_right(angle = 90)\n  turtle_forward(dist = 10)\n  turtle_right(angle = 90)\n  turtle_forward(dist = 17)\n  turtle_down()  # 다시 그리기 추적 시작\n  turtle_left(angle = 180)\n  turtle_forward(dist = 34)\n})"
+  },
+  {
+    "objectID": "turtle.html#반복",
+    "href": "turtle.html#반복",
+    "title": "거북이",
+    "section": "3.2 반복",
+    "text": "3.2 반복\nturtle_move() 함수를 사용해서 매번 코딩을 하게 되면 프로그램이 무척이나 길어지게 된다. 예를 들어 사각형을 거북이가 그리게 되는 사례를 살펴보자.\n\n순차 실행반복문함수\n\n\nturtle_init() 명령어로 거북이 운동장을 깔끔히 비우고 사각형을 그리는 알고리즘으로 이동하고 오른쪽 90도 방향 바꿔 이를 4회 반복한다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\n\nturtle_do({\n  turtle_move(30)\n  turtle_right(90)\n  turtle_move(30)\n  turtle_right(90)\n  turtle_move(30)\n  turtle_right(90)\n  turtle_move(30)\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nturtle_init() 명령어로 거북이 운동장을 깔끔히 비우고 이동하고 우측으로 방향을 90도 바꾸는 명령어를 for() 함수로 4번 반복한다.\n\n\n코드 보기\nturtle_init(mode = \"clip\")\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_col(col = \"red\")\n\nturtle_do({\n  for(i in 1:4) {\n    turtle_move(30)\n    turtle_right(90)\n  }\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nturtle_init() 명령어로 거북이 운동장을 깔끔히 비우고 선두께도 조금 두껍게 하고 colors() 함수에 색상을 하나 뽑아 거북이가 이동할 때마다 색상을 달리한 사각형을 그리는 함수를 제작하여 실행한다.\n\n\n코드 보기\nturtle_init(mode = \"clip\")\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_lwd(3)\n\ndraw_rectangle <- function() {\n  \n  turtle_do({  \n    for(i in 1:4) {\n      random_color <- sample(1:657, 1)\n      turtle_col(col = colors()[random_color])\n      turtle_move(30)\n      turtle_right(90)\n    }\n  })\n  \n}\n\ndraw_rectangle()"
+  },
+  {
+    "objectID": "turtle.knit.html",
+    "href": "turtle.knit.html",
+    "title": "거북이",
+    "section": "",
+    "text": "로고(Logo) 프로그래밍 언어는 단어 혹은 생각을 의미하는 그리스 로고스(logos)에서 파생된 단어로 1967년 Feurzeig 가 붙였다.\n출처: Logo (programming language)\n거북이 그래픽(Turtle Graphics)은 개발자가 특히 처음 프로그래밍을 배우는 학생이 본인이 거북이라고 가정하고 2차원 평면을 단 명령어 2개를 가지고 프로그래밍 주요 개념을 체화할 수 있는 교육용 프로그래밍 언어다.\n\n\n\n위키 L-system(Koch curve) 거북이 그래픽"
+  },
+  {
+    "objectID": "turtle.knit.html#위치와-방향",
+    "href": "turtle.knit.html#위치와-방향",
+    "title": "거북이",
+    "section": "2.1 위치와 방향",
+    "text": "2.1 위치와 방향\n거북이 위치와 상태를 파악하는 것이 향후 거북이를 움직여 의미있는 결과물을 만들어내는데 큰 도움이 된다.\nturtle_getpos() 함수를 사용하면 현재 위치를 확인할 수 있다.\n\n\n코드 보기\nturtle_getpos()\n#>  x  y \n#> 50 50\n\n\nturtle_getangle() 함수를 사용하면 거북이가 향하고 있는 방향을 확인할 수 있다.\n\n\n코드 보기\nturtle_getangle()\n#> angle \n#>     0"
+  },
+  {
+    "objectID": "turtle.knit.html#전후-이동",
+    "href": "turtle.knit.html#전후-이동",
+    "title": "거북이",
+    "section": "2.2 전후 이동",
+    "text": "2.2 전후 이동\nturtle_move() 함수가 기본이고 이를 다양하게 변형한 함수가 생성되어 지원되고 있다. 예를 들어,\n\nturtle_move(): 거북이 이동\nturtle_forward(): 거북이 앞으로 이동\nturtle_backward(): 거북이 뒤로 이동\n\nturtle_move() 함수에 distance = -5 이와 같이 하게 되면 뒤로 후진한다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_forward(dist = -30)\n#> Warning in turtle_move(distance, \"forward\"): Negative value of `distance` moves\n#> the Turtle in the opposite direction."
+  },
+  {
+    "objectID": "turtle.knit.html#방향-전환",
+    "href": "turtle.knit.html#방향-전환",
+    "title": "거북이",
+    "section": "2.3 방향 전환",
+    "text": "2.3 방향 전환\nturtle_move() 와 마찬가지로 turtle_right() 혹은 turtle_left() 함수를 사용하면 좌회전 우회전할 수 있다. angle = 인자를 음수로 각도를 넣게 되면 반대방향으로 방향을 바꾼다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_right(angle = 90)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_move(dist = 30, direction = \"forward\")"
+  },
+  {
+    "objectID": "turtle.knit.html#환경설정",
+    "href": "turtle.knit.html#환경설정",
+    "title": "거북이",
+    "section": "2.4 환경설정",
+    "text": "2.4 환경설정\ntutle_col() 함수를 사용하면 거북이가 이동할 때 남긴 흔적 선색을 예를 들어 “blue” 로 설정하게 되면 파란색으로 설정할 수 있다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_col(col = \"blue\")\nturtle_move(dist = 10)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nturtle_lwd() 함수에 lwd = 인자를 넣게 되면 선두께를 달리할 수 있다. lwd 친숙하신 분은 Base 그래픽에 근거를 둔 것을 알 수 있다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_lwd(lwd = 5)\nturtle_right(45)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_move(dist = 10)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nturtle_lty() 함수에 lty = 선유형을 설정하게 되면 점선, 대쉬선 등을 지정할 수 있다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_lty(lty = 2)\nturtle_right(45)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_move(dist = 30)"
+  },
+  {
+    "objectID": "turtle.knit.html#헬로-월드",
+    "href": "turtle.knit.html#헬로-월드",
+    "title": "거북이",
+    "section": "3.1 헬로 월드",
+    "text": "3.1 헬로 월드\nturtle_init() 으로 초기화 시키고 나서 북쪽을 향하는 기호 비슷한 문양을 다음과 같이 거북이를 이동시키면 그릴 수 있다.\n\n\n코드 보기\nturtle_init()            # 초기화\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_col(col = \"blue\") # 색상설정\n\nturtle_do({\n  # 거북이 이동\n  turtle_forward(dist = 30)\n  turtle_backward(dist = 10)\n  \n  turtle_right(90)\n  turtle_forward(10)\n  turtle_left(angle = 135)\n  turtle_forward(14.14)\n  turtle_left(angle = 90)\n  turtle_forward(14.14)\n  turtle_left(angle = 135)\n  turtle_forward(10)\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nturtle_up() 함수는 거북이가 공중부양(?)을 하기 때문에 그리기 추적 없이 공중부양해서 명령을 수행하고 turtle_down() 함수는 다시 거북이가 하늘에서 내려와서 다시 그리기 명령을 수행한다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\n\nturtle_do({\n  turtle_right(angle = 90)\n  turtle_forward(dist = 10)\n  turtle_right(angle = 90)\n  turtle_forward(dist = 17)\n  \n  turtle_up()    # 그리기 추적 없음\n  turtle_right(angle = 90)\n  turtle_forward(dist = 10)\n  turtle_right(angle = 90)\n  turtle_forward(dist = 17)\n  turtle_down()  # 다시 그리기 추적 시작\n  turtle_left(angle = 180)\n  turtle_forward(dist = 34)\n})"
+  },
+  {
+    "objectID": "turtle.knit.html#반복",
+    "href": "turtle.knit.html#반복",
+    "title": "거북이",
+    "section": "3.2 반복",
+    "text": "3.2 반복\nturtle_move() 함수를 사용해서 매번 코딩을 하게 되면 프로그램이 무척이나 길어지게 된다. 예를 들어 사각형을 거북이가 그리게 되는 사례를 살펴보자.\n\n순차 실행반복문함수\n\n\nturtle_init() 명령어로 거북이 운동장을 깔끔히 비우고 사각형을 그리는 알고리즘으로 이동하고 오른쪽 90도 방향 바꿔 이를 4회 반복한다.\n\n\n코드 보기\nturtle_init()\n\n\n\n\n\n\n\n\n\n코드 보기\n\nturtle_do({\n  turtle_move(30)\n  turtle_right(90)\n  turtle_move(30)\n  turtle_right(90)\n  turtle_move(30)\n  turtle_right(90)\n  turtle_move(30)\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nturtle_init() 명령어로 거북이 운동장을 깔끔히 비우고 이동하고 우측으로 방향을 90도 바꾸는 명령어를 for() 함수로 4번 반복한다.\n\n\n코드 보기\nturtle_init(mode = \"clip\")\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_col(col = \"red\")\n\nturtle_do({\n  for(i in 1:4) {\n    turtle_move(30)\n    turtle_right(90)\n  }\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nturtle_init() 명령어로 거북이 운동장을 깔끔히 비우고 선두께도 조금 두껍게 하고 colors() 함수에 색상을 하나 뽑아 거북이가 이동할 때마다 색상을 달리한 사각형을 그리는 함수를 제작하여 실행한다.\n\n\n코드 보기\nturtle_init(mode = \"clip\")\n\n\n\n\n\n\n\n\n\n코드 보기\nturtle_lwd(3)\n\ndraw_rectangle <- function() {\n  \n  turtle_do({  \n    for(i in 1:4) {\n      random_color <- sample(1:657, 1)\n      turtle_col(col = colors()[random_color])\n      turtle_move(30)\n      turtle_right(90)\n    }\n  })\n  \n}\n\ndraw_rectangle()"
   }
 ]

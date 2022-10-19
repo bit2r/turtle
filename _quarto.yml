@@ -8,21 +8,28 @@ website:
   page-footer:
     left: "[한국R사용자회](http://r2bit.com/)에서 [Quarto](https://quarto.org/) 로 제작"
   navbar:
-    background: "#447099"  
+    background: "#447099"
     left:
       - text: "집으로"
         href: index.qmd
       - text: "거북이"
-        menu: 
+        menu:
           - href: turtle.qmd
           - text: "거북이"
-          
+
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    toc-location: right
+    toc-title: "목자"
+    code-fold: true
+    code-tools: true
+    code-summary: "코드 보기"
+    number-sections: true
 
-
+execute:
+  freeze: true
 
